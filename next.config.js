@@ -1,16 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	//output: "standalone", //this is only for next.js on Azure Static Web Apps...
-	reactStrictMode: true,
-	// swcMinify: true, //deprecated
-	images: {
-		remotePatterns: [
-			{
-				protocol: 'https',
-				hostname: '*.aglty.io',
-			},
-		],
-	},
-}
+  // ✅ generate static HTML in /out for Netlify
+  output: 'export',
 
-module.exports = nextConfig
+  reactStrictMode: true,
+
+  // ✅ Next/Image must be disabled for static export
+  images: {
+    unoptimized: true,
+    // (optional) keep remotePatterns if you later move to SSR hosting
+    remotePatterns: [
+      { protocol: 'https', hostname: '*.agltv.io' } // keep or remove; harmless
+    ]
+  },
+};
+
+module.exports = nextConfig;
