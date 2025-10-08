@@ -7,5 +7,4 @@ const nextConfig = {
     remotePatterns: [{ protocol: 'https', hostname: '*.agltv.io' }]
   }
 };
-
 module.exports = nextConfig;
